@@ -7,7 +7,7 @@ title: 60 Yaks
 subtitle:
 description: 60 Yaks Per Second
 keywords:
-author: Cameron MacFarland
+author: 60 Yaks
 language: en
 timezone:
 
@@ -73,7 +73,45 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: icarus
+theme: next
+
+theme_config:
+  favicon:
+    small: /favicon-16x16.png
+    medium: /favicon-32x32.png
+    apple_touch_icon: /apple-touch-icon.png
+    safari_pinned_tab: /safari-pinned-tab.svg
+    android_manifest: /site.manifest
+    ms_browserconfig: /browserconfig.xml
+  menu:
+    home: / || home
+    #about: /about/ || user
+    tags: /tags/ || tags
+    categories: /categories/ || th
+    archives: /archives/ || archive
+    #schedule: /schedule/ || calendar
+    #sitemap: /sitemap.xml || sitemap
+    #commonweal: /404/ || heartbeat
+  scheme: Gemini
+  social:
+    GitHub: https://github.com/60yaks || github
+    Twitter: https://twitter.com/60yaks || twitter
+  avatar:
+    url: images/avatar.png
+  gitment:
+    enable: true
+    mint: true # RECOMMEND, A mint on Gitment, to support count, language and proxy_gateway
+    count: true # Show comments count in post meta area
+    lazy: false # Comments lazy loading with a button
+    cleanly: false # Hide 'Powered by ...' on footer, and more
+    language: # Force language, or auto switch by theme
+    github_user: 60yaks # MUST HAVE, Your Github Username
+    github_repo: 60yaks.github.io # MUST HAVE, The name of the repo you use to store Gitment comments
+    client_id: 5198e17218b77c4ca3d7 # MUST HAVE, Github client id for the Gitment
+    client_secret: a0aaa27833a70b7120064204c58461286427d38b # EITHER this or proxy_gateway, Github access secret token for the Gitment
+    proxy_gateway: # Address of api proxy, See: https://github.com/aimingoo/intersect
+    redirect_protocol: # Protocol of redirect_uri with force_redirect_protocol when mint enabled
+
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
