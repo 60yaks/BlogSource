@@ -4,18 +4,18 @@
 
 # Site
 title: 60 Yaks
-subtitle:
+subtitle: Talking about making games.
 description: 60 Yaks Per Second
 keywords:
 author: 60 Yaks
 language: en
-timezone:
+timezone: Australia/Perth
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://60yaks.com
 root: /
-permalink: :year:month:day/:title/
+permalink: :category/:title/
 permalink_defaults:
 
 # Directory
