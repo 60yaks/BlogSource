@@ -1,0 +1,88 @@
+<!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+<%
+    var unsplash_id = item.unsplash_id || theme.index_unsplash_id;
+    var cover = item.cover || theme.index_cover;
+    if (unsplash_id) {
+        cover = "https://source.unsplash.com/" + unsplash_id + "/1600x1200"
+    }
+    var unsplash_user = item.unsplash_user || theme.index_unsplash_user
+    var unsplash_username = item.unsplash_username || theme.index_unsplash_username
+%>
+<header class="intro-header" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('<%- cover %>')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1><%- item.title || theme.default_post_title || "Untitled" %></h1>
+                    <% if (item.subtitle && item.subtitle.length) { %>
+                    <h2 class="post-subheading">
+                        <%- item.subtitle %>
+                    </h2>
+                    <% } %>
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        <% if(item.author) { %>
+                            Posted by <%- item.author %> on
+                        <% } %>
+                        <% if(item.date) { %>
+                            <%= item.date.format(config.date_format) %>
+                        <% } %>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% if (unsplash_user && unsplash_username) { %>
+    <div class="unsplash-credit"><h6>Photo by <a target="_blank" href="https://unsplash.com/<%= unsplash_username %>"><%= unsplash_user %></a></h6></div>
+    <% } %>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           <% if (item.categories && item.categories.length || item.tags && item.tags.length) { %>
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    <% if (item.tags && item.tags.length){ %>
+                        <%- partial('article-tags', {item: item}) %>
+                    <% } else { %>
+                        <%- partial('article-categories', {item: item}) %>
+                    <% } %>
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    <% if (item.tags && item.tags.length && item.categories && item.categories.length){ %>
+                        <%- partial('article-categories', {item: item}) %>
+                    <% } %>
+                </div>
+            <% } %>
+
+            <!-- Gallery -->
+            <% if (item.photos && item.photos.length){ %>
+                <%- partial('gallery') %>
+            <% } %>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <%- item.content %>
+
+                <% if(theme.addthis) { %>
+                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=<%- theme.addthis %>"></script>
+
+                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                    <div class="addthis_sharing_toolbox"></div>
+                <% } %>
+            </div>
+
+            <!-- Comments -->
+            <% if (item.comment != false) { %>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <%- partial("_partial/comments.ejs") %>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</article>

@@ -84,6 +84,9 @@ theme: clean-blog
 
 theme_config:
   # clean-blog theme
+  index_unsplash_id: oKlzAqzWyrc
+  index_unsplash_user: Anton Sharov
+  index_unsplash_username: antonsharov
   menu:
     Home: /
     Archives: /archives
@@ -99,6 +102,19 @@ theme_config:
   twitter_url: https://twitter.com/60yaks
   twitter_handle: 60yaks
   github_url: https://github.com/60yaks
+  gitment:
+    enable: true
+    mint: true # RECOMMEND, A mint on Gitment, to support count, language and proxy_gateway
+    count: true # Show comments count in post meta area
+    lazy: false # Comments lazy loading with a button
+    cleanly: false # Hide 'Powered by ...' on footer, and more
+    language: # Force language, or auto switch by theme
+    github_user: 60yaks # MUST HAVE, Your Github Username
+    github_repo: 60yaks.github.io # MUST HAVE, The name of the repo you use to store Gitment comments
+    client_id: 5198e17218b77c4ca3d7 # MUST HAVE, Github client id for the Gitment
+    client_secret: a0aaa27833a70b7120064204c58461286427d38b # EITHER this or proxy_gateway, Github access secret token for the Gitment
+    proxy_gateway: # Address of api proxy, See: https://github.com/aimingoo/intersect
+    redirect_protocol: # Protocol of redirect_uri with force_redirect_protocol when mint enabled
 
   # next theme
   # favicon:
